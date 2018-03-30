@@ -44,7 +44,7 @@ def get_time_period():
 		print('please provide a valid input. \n')
 		get_time_period()
 		
-	return time_period
+	return time_period.lower()
 
 def get_month():
 	'''Asks the user for a month and returns the specified month.
@@ -69,8 +69,11 @@ def get_day(month):
 		(int) return the day of the month 
 	'''
 	day = input('\nWhich day? Please type your response as an integer.\n')
-	# TODO: handle raw input and complete function
-
+	
+	if day not in range(1,31):
+		print('Enter a valid day')
+		get_day(month)
+		
 	return int(day)
 
 def extract_start_date(city_file):	
